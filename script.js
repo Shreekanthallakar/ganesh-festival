@@ -1,7 +1,7 @@
 /* ============================================================
    CONFIG — edit this after you deploy your backend on Render
    ============================================================ */
-const BACKEND_URL = "https://YOUR-BACKEND-NAME.onrender.com"; // <-- change me
+const BACKEND_URL = "https://ganesh-festival.onrender.com"; // <-- change me
 
 /* ================= COUNTDOWN ================= */
 
