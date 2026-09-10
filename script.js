@@ -37,10 +37,10 @@ setInterval(updateCountdown, 1000);
 /* Hardcoded list of 20 members — replace with real names anytime. */
 
 const members = [
-    "Member 1", "Member 2", "Member 3", "Member 4", "Member 5",
-    "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
-    "Member 11", "Member 12", "Member 13", "Member 14", "Member 15",
-    "Member 16", "Member 17", "Member 18", "Member 19", "Member 20"
+    "Vijay Hadimani", "Prakash Kotambri", "Basavaraddi Bandihal", "Vadiraj", "Shivu Mathad",
+    "waiting...", "waiting...", "waiting...", "waiting...", "waiting...",
+    "waiting...", "waiting...", "waiting...", "waiting...", "waiting...",
+    "waiting...", "waiting...", "waiting...", "waiting...", "waiting..."
 ];
 
 function renderMembers() {
