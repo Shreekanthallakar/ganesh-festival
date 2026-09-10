@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Ganesh Festival</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+        <div class="logo">🕉️ ಗಜಾನನ ಗೆಳೆಯರ ಬಳಗ, ಡಂಬಳ</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#program">Program</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="om">ಓಂ 🕉️</div>
+            <h1>ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ 🙏</h1>
+            <h2>Welcome to Our Ganesh Festival</h2>
+            <p>गणपती बाप्पा मोरया! 🙏</p>
+            <p>Come together with family and friends to celebrate the divine presence of Lord Ganesha.</p>
+
+            <div class="countdown">
+                <div class="time-box"><span id="days">00</span>Days</div>
+                <div class="time-box"><span id="hours">00</span>Hours</div>
+                <div class="time-box"><span id="minutes">00</span>Minutes</div>
+                <div class="time-box"><span id="seconds">00</span>Seconds</div>
+            </div>
+
+            <a href="#program" class="btn">View Program</a>
+        </div>
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+        <h2>🙏 About Our Ganesh</h2>
+        <p>
+            Our Ganesh celebration is a time for devotion, togetherness and happiness.
+            We welcome everyone to participate in the celebrations and seek the blessings of Lord Ganesha.
+        </p>
+
+        <div class="about-grid">
+            <div class="card">
+                <h3>🌺 Our Celebration</h3>
+                <p>Join us for daily prayers, aarti, cultural activities and special celebrations during Ganesh Chaturthi.</p>
+            </div>
+            <div class="card">
+                <h3>🪔 Our Tradition</h3>
+                <p>Together we celebrate our traditions, culture and community while spreading happiness and positivity.</p>
+            </div>
+        </div>
+
+        <div class="members-btn-wrap">
+            <button class="btn" onclick="openMembersModal()">👥 Members</button>
+        </div>
+    </section>
+
+
+    <!-- ================= MEMBERS MODAL ================= -->
+
+    <div class="modal-overlay" id="membersModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeMembersModal()">&times;</button>
+            <h3>Our Members</h3>
+            <ul class="members-list" id="membersList"></ul>
+        </div>
+    </div>
+
+
+    <!-- ================= PROGRAM ================= -->
+
+    <section class="program" id="program">
+        <h2>📅 Festival Program</h2>
+        <p>Join us for the special events during the Ganesh festival.</p>
+
+        <div class="events">
+            <div class="event">
+                <div class="event-date">Day 1</div>
+                <div>
+                    <h3>Ganesh Sthapana</h3>
+                    <p>Welcome ceremony and Ganesh Sthapana.</p>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-date">Day 2</div>
+                <div>
+                    <h3>Morning & Evening Aarti</h3>
+                    <p>Join us for Ganesh Aarti and prayers.</p>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-date">Day 3</div>
+                <div>
+                    <h3>Cultural Program</h3>
+                    <p>Music, dance and cultural activities.</p>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="event-date">Final Day</div>
+                <div>
+                    <h3>Ganesh Visarjan</h3>
+                    <p>Final Aarti followed by Visarjan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= GALLERY ================= -->
+
+    <section class="gallery" id="gallery">
+        <h2>📸 Gallery</h2>
+        <p>Memories from our Ganesh celebrations. Pick a year, slide through the preview, or open the full gallery below.</p>
+
+        <div class="gallery-toolbar">
+            <label for="yearSelect"><strong>Year:</strong></label>
+            <select id="yearSelect" class="year-select"></select>
+        </div>
+
+        <p class="gallery-empty" id="galleryEmptyMsg" style="display:none;">
+            No photos yet for this year. Once the admin uploads some, they'll show up here.
+        </p>
+
+        <div class="carousel-wrap">
+            <button class="carousel-arrow left" onclick="scrollCarousel(-1)" aria-label="Scroll left">&#8592;</button>
+            <div class="carousel" id="carousel"></div>
+            <button class="carousel-arrow right" onclick="scrollCarousel(1)" aria-label="Scroll right">&#8594;</button>
+        </div>
+
+        <button class="btn view-full-btn" onclick="openLightbox()">🖼️ View Full Gallery</button>
+    </section>
+
+
+    <!-- ================= LIGHTBOX (full gallery + admin) ================= -->
+
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <div class="lightbox-topbar">
+            <div class="lightbox-topbar-left">
+                <span class="lightbox-title">📸 Full Gallery</span>
+                <select id="lightboxYearSelect" class="year-select"></select>
+            </div>
+            <div class="lightbox-topbar-right">
+                <button class="btn secondary" onclick="openUploadForm()">⬆️ Upload</button>
+                <button class="btn secondary" id="deleteModeBtn" onclick="toggleDeleteMode()">Delete Mode</button>
+                <button class="btn secondary" onclick="lockAdmin()">🔒 Lock</button>
+                <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close gallery">&times;</button>
+            </div>
+        </div>
+
+        <div class="lightbox-grid" id="lightboxGrid"></div>
+    </div>
+
+
+    <!-- ================= ADMIN KEY MODAL ================= -->
+
+    <div class="modal-overlay" id="adminKeyModal">
+        <div class="modal-box admin-form">
+            <button class="modal-close" onclick="closeAdminKeyModal()">&times;</button>
+            <h3>🔑 Admin Key Required</h3>
+            <label for="adminKeyInput">Enter admin key</label>
+            <input type="password" id="adminKeyInput" placeholder="Admin key">
+            <div class="admin-error" id="adminKeyError"></div>
+            <button class="btn" onclick="submitAdminKey()">Unlock</button>
+        </div>
+    </div>
+
+
+    <!-- ================= UPLOAD MODAL ================= -->
+
+    <div class="modal-overlay" id="uploadModal">
+        <div class="modal-box admin-form">
+            <button class="modal-close" onclick="closeUploadModal()">&times;</button>
+            <h3>⬆️ Upload Photo</h3>
+
+            <label for="uploadYear">Year</label>
+            <input type="text" id="uploadYear" placeholder="e.g. 2026">
+
+            <label for="uploadFile">Image file</label>
+            <input type="file" id="uploadFile" accept="image/*">
+
+            <div class="admin-error" id="uploadError"></div>
+            <div class="admin-status" id="uploadStatus"></div>
+
+            <button class="btn" onclick="submitUpload()">Upload</button>
+        </div>
+    </div>
+
+
+    <!-- ================= LOCATION ================= -->
+
+    <section class="location" id="location">
+        <h2>📍 Visit Us</h2>
+
+        <div class="location-box">
+            <h3>Our Ganesh Mandap</h3>
+            <br>
+            <p>📍 Your Address Here</p>
+            <br>
+            <p>🕐 Aarti: 7:00 PM</p>
+            <br>
+            <a href="https://maps.app.goo.gl/aVk2LqmNNoYwidFh9?g_st=aw" class="btn" target="_blank" rel="noopener noreferrer">
+                Get Directions
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <div class="mantra">गणपती बाप्पा मोरया! 🙏</div>
+        <p>© 2026 Our Ganesh Festival</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
