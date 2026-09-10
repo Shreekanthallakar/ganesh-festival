@@ -38,9 +38,9 @@ setInterval(updateCountdown, 1000);
 
 const members = [
     "Vijay Hadimani", "Prakash Kotambri", "Basavaraddi Bandihal", "Vadiraj", "Shivu Mathad",
-    "waiting...", "waiting...", "waiting...", "waiting...", "waiting...",
-    "waiting...", "waiting...", "waiting...", "waiting...", "waiting...",
-    "waiting...", "waiting...", "waiting...", "waiting...", "waiting..."
+    "Lankesh kadadi", "muttappa Bhovi", "muttu walikar", "mallappa kadadi", "Prajwal Mane",
+    "Gopal kadadi", "santhosh kashabovi", "shivu karaddi", "siddu naragund", "kiran hanawal",
+    "harish alagi", "shivu Bandihal", "Manjunath hadagali", "ramesh yenagi", "vinod Javalatot", "Hanamanthappa Uppar"
 ];
 
 function renderMembers() {
