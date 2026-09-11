@@ -148,21 +148,19 @@ nav ul li a:hover {
     text-align: center;
     overflow: hidden;
     color: var(--white);
+    min-height: 560px;
 
-    /* Using a free-to-use (Pixabay License, no attribution required) Ganesh
-       photo so this works out of the box. Swap the url() for your own
-       pandal/idol photo any time — see the comment below.
-       The gradient layer uses "cover" so it always fills the hero; the
-       photo layer uses "contain" so the WHOLE image is visible, never
-       cropped, letterboxed on the gradient behind it. */
+    /* Using your own Ganesh photo (ganesh-bg.jpg) here.
+       Both layers use "cover" so the photo always fills the ENTIRE
+       hero section on every screen size, with no blank gaps —
+       it will crop at the edges rather than shrink to fit. */
     background-image:
-        linear-gradient(180deg, rgba(33, 12, 10, 0.65) 0%, rgba(58, 20, 15, 0.55) 45%, rgba(33, 12, 10, 0.85) 100%),
-        url('https://cdn.pixabay.com/photo/2016/08/31/15/11/hinduism-1633815_1280.jpg');
-    background-size: cover, contain;
-    background-position: center, center;
+        linear-gradient(180deg, rgba(33, 12, 10, 0.65) 0%, rgba(58, 20, 15, 0.45) 45%, rgba(33, 12, 10, 0.85) 100%),
+        url('ganesh-bg.jpg');
+    background-size: cover, cover;
+    background-position: center, center 25%;
     background-repeat: no-repeat, no-repeat;
-    /* To use your own photo instead: save it next to this CSS file as
-       ganesh-bg.jpg and change the url() above to url('ganesh-bg.jpg') */
+    background-attachment: scroll, scroll;
 }
 
 /* Fallback festive gradient shown only if ganesh-bg.jpg is missing/not yet added */
@@ -181,6 +179,7 @@ nav ul li a:hover {
     opacity: 0.25;
     pointer-events: none;
 }
+
 
 .hero-content {
     position: relative;
@@ -718,7 +717,7 @@ footer p {
 @media (max-width: 640px) {
     nav { flex-direction: column; align-items: flex-start; }
     nav ul { gap: 1.1em; width: 100%; justify-content: space-between; }
-    .hero { padding: 3.5em 6% 4.5em; }
+    .hero { padding: 3.5em 6% 4.5em; min-height: 480px; }
     .countdown { gap: 0.5em; }
     .time-box { min-width: 64px; padding: 0.6em 0.7em; }
     .time-box span { font-size: 1.4rem; }
