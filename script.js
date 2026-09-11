@@ -399,8 +399,15 @@ const OLD_GROUP_FOLDER = "members/";
 
 const oldGroupPhotos = [
     "Shreekant Hallakar.jpg",
-    // "suresh.jpg",
-    // "anil-kumar.jpg",
+    "Mahesh Bisanalli.jpg",
+    "Prakash Kotambri.jpg",
+    "Kumar Hanawal.jpg",
+    "Sharanappa Mettin.jpg",
+    "Muttu Binkadakatti.jpg",
+    "Vadiraj Kundagol.jpg",
+    "Manju Hallakar.jpg",
+    "Venkatesh Kundagol.jpg",
+    "Muttu Manakawad.jpg" ,
     // ...add your real filenames here, one per line
 ];
 
