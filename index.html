@@ -68,6 +68,7 @@
 
         <div class="members-btn-wrap">
             <button class="btn" onclick="openMembersModal()">👥 Members</button>
+            <button class="btn secondary" onclick="openOldMembersModal()">🕰️ Old Ganesh Group</button>
         </div>
     </section>
 
@@ -79,6 +80,28 @@
             <button class="modal-close" onclick="closeMembersModal()">&times;</button>
             <h3>Our Members</h3>
             <ul class="members-list" id="membersList"></ul>
+        </div>
+    </div>
+
+
+    <!-- ================= OLD GANESH GROUP MODAL (new, separate) ================= -->
+
+    <div class="modal-overlay" id="oldMembersModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeOldMembersModal()">&times;</button>
+            <h3>Old Ganesh Group</h3>
+            <ul class="members-list" id="oldMembersList"></ul>
+        </div>
+    </div>
+
+
+    <!-- ================= MEMBER PHOTO MODAL (shared popup for the old group photos) ================= -->
+
+    <div class="modal-overlay" id="memberPhotoModal">
+        <div class="modal-box member-photo-box">
+            <button class="modal-close" onclick="closeMemberPhotoModal()">&times;</button>
+            <img id="memberPhotoImg" class="member-photo-img" src="" alt="">
+            <h3 id="memberPhotoName"></h3>
         </div>
     </div>
 
@@ -232,5 +255,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="members.js"></script>
 </body>
 </html>

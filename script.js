@@ -371,7 +371,101 @@ document.addEventListener("keydown", (e) => {
         closeMembersModal();
         closeAdminKeyModal();
         closeUploadModal();
+        closeOldMembersModal();
+        closeMemberPhotoModal();
     }
 });
 
 loadManifest();
+
+/* =========================================================
+   OLD GANESH GROUP — names + photos.
+   This is a SEPARATE feature from your existing "Members"
+   button/modal — it does not touch membersList or
+   membersModal at all.
+
+   HOW TO USE:
+   1. Create a folder named "members" next to index.html.
+   2. Put each person's photo inside it, named after them,
+      e.g. members/ramesh.jpg, members/suresh.jpg
+   3. List those exact filenames below, one per line, in the
+      oldGroupPhotos array. The display name is generated
+      automatically from the filename (ramesh.jpg -> "Ramesh",
+      anil-kumar.jpg -> "Anil Kumar").
+   4. Add as many as you like — 30, more, fewer, doesn't matter.
+   ========================================================= */
+
+const OLD_GROUP_FOLDER = "members/";
+
+const oldGroupPhotos = [
+    "Shreekant Hallakar.jpg",
+    // "suresh.jpg",
+    // "anil-kumar.jpg",
+    // ...add your real filenames here, one per line
+];
+
+function oldGroupNameFromFile(filename) {
+    let name = filename.replace(/\.[a-zA-Z0-9]+$/, "");   // drop extension
+    name = name.replace(/[-_]+/g, " ").trim();             // dashes/underscores -> spaces
+    return name.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+}
+
+function renderOldGroupList() {
+    const list = document.getElementById("oldMembersList");
+    if (!list) return;
+
+    list.innerHTML = "";
+
+    if (oldGroupPhotos.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "No names added yet — see members.js for instructions.";
+        list.appendChild(li);
+        return;
+    }
+
+    oldGroupPhotos.forEach((filename) => {
+        const li = document.createElement("li");
+        li.textContent = oldGroupNameFromFile(filename);
+        li.className = "member-name";
+        li.setAttribute("role", "button");
+        li.setAttribute("tabindex", "0");
+        li.addEventListener("click", () => openMemberPhoto(filename));
+        li.addEventListener("keypress", (e) => {
+            if (e.key === "Enter" || e.key === " ") openMemberPhoto(filename);
+        });
+        list.appendChild(li);
+    });
+}
+
+function openOldMembersModal() {
+    renderOldGroupList();
+    document.getElementById("oldMembersModal").classList.add("active");
+}
+
+function closeOldMembersModal() {
+    document.getElementById("oldMembersModal").classList.remove("active");
+}
+
+document.getElementById("oldMembersModal").addEventListener("click", function (e) {
+    if (e.target === this) closeOldMembersModal();
+});
+
+function openMemberPhoto(filename) {
+    const img = document.getElementById("memberPhotoImg");
+    const nameEl = document.getElementById("memberPhotoName");
+    const modal = document.getElementById("memberPhotoModal");
+    if (!img || !nameEl || !modal) return;
+
+    img.src = OLD_GROUP_FOLDER + filename;
+    img.alt = oldGroupNameFromFile(filename);
+    nameEl.textContent = oldGroupNameFromFile(filename);
+    modal.classList.add("active");
+}
+
+function closeMemberPhotoModal() {
+    document.getElementById("memberPhotoModal").classList.remove("active");
+}
+
+document.getElementById("memberPhotoModal").addEventListener("click", function (e) {
+    if (e.target === this) closeMemberPhotoModal();
+});
